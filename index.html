@@ -2,13 +2,38 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>ID</title>
+	<title>gradient</title>
+	<link rel="shortcut icon" type="image/x-icon" href="image/logo.png">
+	<style>
+		html,body,div,p{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+		}
+		.box{
+			height: 200px;
+			FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#999, endColorStr=#111); /*IE 6 7 8*/
+            background: -ms-linear-gradient(top, #999, #111);        /* IE 10 */
+            background:-moz-linear-gradient(top, #999, #111);/*火狐*/
+            background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#999), to(#111));/*谷歌*/
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999), to(#111));      /* Safari 4-5, Chrome 1-9*/
+            background: -webkit-linear-gradient(top, #999, #111);   /*Safari5.1 Chrome 10+*/
+            background: -o-linear-gradient(top, #999, #111);  /*Opera 11.10+*/
+		}
+		.box>p{
+			text-align:center;
+			line-height:300px;
+		}
+	</style>	
 </head>
 <body>
-	<form action="one.php" method="post">
-	名字: <input type="text" name="fname">
-	年龄: <input type="text" name="age">
-	<input type="submit" value="提交">
-	</form>
+	<div class="box">
+		<p>背景渐变</p>
+	</div>
+	<div class="main">
+	
+	</div>
 </body>
 </html>
