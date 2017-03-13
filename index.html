@@ -3,40 +3,70 @@
 <head>
 	<meta charset="UTF-8">
 	<title>gradient</title>
-	<link rel="shortcut icon" type="image/x-icon" href="image/x-icon.png">
 	<style>
-		html,body,div,p{
-			margin: 0;
-			padding: 0;
+		html,body,div,p,ul,li{
+			margin: 0;padding: 0;
 		}
 		body{
-			font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+			background-color: #ECF0F1;
 		}
-		.box{
-			height: 200px;
-			FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#999, endColorStr=#111); /*IE 6 7 8*/
-            background: -ms-linear-gradient(top, #999, #111);        /* IE 10 */
-            background:-moz-linear-gradient(top, #999, #111);/*火狐*/
-            background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#999), to(#111));/*谷歌*/
-            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999), to(#111));      /* Safari 4-5, Chrome 1-9*/
-            background: -webkit-linear-gradient(top, #999, #111);   /*Safari5.1 Chrome 10+*/
-            background: -o-linear-gradient(top, #999, #111);  /*Opera 11.10+*/
+		.header{
+			height: 30px;
+			FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#666, endColorStr=#111); /*IE 6 7 8*/
+            background-image: -ms-linear-gradient(top, #666, #111);        /* IE 10 */
+            background-image:-moz-linear-gradient(top, #666, #111);/*火狐*/
+            background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#111));/*谷歌*/
+            background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#111));      /* Safari 4-5, Chrome 1-9*/
+            background-image: -webkit-linear-gradient(top, #666, #111);   /*Safari5.1 Chrome 10+*/
+            background-image: -o-linear-gradient(top, #666, #111);  /*Opera 11.10+*/
 		}
-		.box>p{
-			text-align:center;
-			line-height:300px;
-			color:white;
-			font-size:21px;
-			font-weight:bold;
+		.header>p{
+			text-align: center;
+			line-height: 30px;
+			font-size: 16px;
+			color: white;
+			font-weight: bold;
 		}
-	</style>	
+		.main{
+			width: 700px;
+			margin: auto;
+			padding-top: 20px;
+		}
+		.main li{
+			padding: 4px 0;
+			color: #333;
+			font-weight: bold;
+		}
+	</style>
 </head>
 <body>
-	<div class="box">
+	<div class="header">
 		<p>背景渐变</p>
 	</div>
 	<div class="main">
-	
+		<p style="text-align:center;padding-bottom:12px"><span style="color:purple;font-weight:bold">background-image:</span><span style="color:maroon">-webkit-linear-gradient</span>(<span style="color:maroon">top</span>, <span style="color:orange">#FF006C</span>, <span style="color:orange">#623448</span>);</p>
+		<div style="height: 100px;background-image:-webkit-linear-gradient(top, #FF006C, #623448)"></div>
+		<h2 style="text-align:center">详&nbsp;解</h2>
+		<ul>
+			<h4>
+				<p>基本语法：</p>
+				<p>background-image:-webkit-gradient(type,x1 y1, x2 y2, from(开始颜色值),to(结束颜色值), [color-stop(偏移量小数,停靠颜色值),...] );</p>
+			</h4>
+			<li>webkit内核的safari、 Chrome的Linear Gradients (线性渐变) </li>
+			<li>-webkit-gradient是background的一个属性值；</li>
+			<li>webkit内核的Linear Gradients (线性渐变) 第一组参数type（类型）为 linear；</li>
+			<li>第二组参数是,x1 y1, x2 y2,当成颜色渐变体的两个点的坐标就是。x1,x2,y1,y2的取值范围为0%-100%，当x1,x2,y1,y2取值为极值的时候，x1和x2可以取值left（或0%）或right（或100%），,y1和y2可以取值top（或0%）或bottom（或100%）；</li>
+		</ul>
+		<ol>
+			<li>当x1等于x2，y1不等于y2，实现垂直渐变，调整y1，y2的值可以调整渐变半径大小；</li>
+			<div style="width:600px;height:600px;background-image:-webkit-gradient(linear,0% 0%, 0% 100%, from(#eee),to(#111))"></div>
+			<li>当y1等于y2，x1不等于x2，实现水平渐变，调整x1，x2的值可以调整渐变半径大小；</li>
+			<div style="width:600px;height:600px;background-image:-webkit-gradient(linear,0% 0%, 100% 0%, from(#eee),to(#111))"></div>
+			<li>当y1不等于y2，x1不等于x2，实现角度渐变，当x1,x2,y1,y2取值为极值的时候接近垂直渐变或水平渐变；</li>
+			<div style="width:600px;height:600px;background-image:-webkit-gradient(linear,0% 100%, 100% 0%, from(#eee),to(#111))"></div>
+			<li>当x1等于x2，y1等于y2，实现没有渐变，取from色，即“ from(颜色值) ”；</li>
+			<div style="width:600px;height:600px;background-image:-webkit-gradient(linear,100% 100%, 100% 100%, from(#ccc),to(#111))"></div>
+		</ol>
 	</div>
 </body>
 </html>
